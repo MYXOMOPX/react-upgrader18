@@ -1,0 +1,14 @@
+.version-switch {
+    margin: 2rem 10rem;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    background-color: var(--color-grey-dark-1);
+    border-radius: 1rem;
+}
+
+.version-switch__link {
+    margin: 0 10rem;
+}

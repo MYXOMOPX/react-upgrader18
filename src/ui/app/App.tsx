@@ -1,13 +1,20 @@
 import React from 'react';
-import logo from '../logo.svg';
+import {BrowserRouter, Routes} from "react-router-dom";
 import './App.css';
+import Sidebar from "../sidebar/Sidebar";
+import {Route} from "react-router";
+import Batching from "../content/batching/Batching";
 
 function App() {
   return (
-    <div className="app-grid">
-      <div className="sidebar"></div>
-      <div className="content"/>
-    </div>
+    <BrowserRouter>
+      <div className="app-grid">
+        <Sidebar/>
+        <Routes>
+          <Route path="/batching/*" element={<Batching/>}/>
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

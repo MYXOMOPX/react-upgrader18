@@ -1,0 +1,26 @@
+.sidebar {
+    background-color: var(--color-grey-dark-1);
+}
+
+.sidebar__list {
+    list-style: none;
+    padding: 1rem;
+    font-size: 2rem;
+}
+
+.sidebar__link:link,
+.sidebar__link:visited,
+.sidebar__link {
+    text-decoration: none;
+    color: var(--color-grey-light-1);
+    transition: color .2s;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.sidebar__link:hover {
+    color: var(--color-primary-dark)
+}
+.sidebar__link:active {
+    color: var(--color-primary)
+}

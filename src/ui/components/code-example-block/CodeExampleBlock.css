@@ -1,0 +1,7 @@
+.code-example-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 5rem;
+    border-radius: 3px;
+    grid-column-gap: 2rem;
+}

@@ -1,0 +1,6 @@
+.example-block {
+    border-radius: 3px;
+    overflow: hidden;
+    padding: 2rem;
+    border: 2px dashed var(--color-grey-dark-3);
+}
