@@ -1,0 +1,21 @@
+.header-nav {
+    margin: 2rem 10rem;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    background-color: var(--color-grey-dark-1);
+    border-radius: 1rem;
+}
+
+.header-nav__title {
+    margin-left: 5rem;
+}
+
+.header-nav__routes {
+    margin-left: auto;
+}
+
+.header-nav__link {
+    margin: 0 5rem;
+}

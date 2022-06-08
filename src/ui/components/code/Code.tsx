@@ -1,10 +1,10 @@
-import React, {CSSProperties, FC, useMemo} from "react";
-import { CodeBlock, dracula as theme } from "react-code-blocks";
+import {CSSProperties, FC, useMemo} from "react";
+import { CodeBlock, obsidian as theme } from "react-code-blocks";
 import "./Code.css"
 
 interface CodeProps {
     text?: string;
-    language: "tsx" | "typescript",
+    language: "tsx" | "typescript" | "jsx",
     hideLineNumbers?: boolean
     style?: CSSProperties;
     textSize?: CSSProperties["fontSize"]

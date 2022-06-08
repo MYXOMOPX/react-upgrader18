@@ -1,30 +1,41 @@
-import React from 'react';
-import BatchingNew from "./BatchingNew";
 import {VersionSwitch} from "../../components/version-switch/VersionSwitch";
-import { CodeExampleBlock } from '../../components/code-example-block/CodeExampleBlock';
+import { HalfGrid } from '../../components/half-grid/HalfGrid';
 import samples from "./code-samples";
 import { ExampleBlock } from '../../components/example-block/ExampleBlock';
 import { Code } from '../../components/code/Code';
-import { Text } from "../../components/Text/Text"
+import { BatchingExampleNew } from './BatchingExample';
+import { HeaderNav } from "../../components/header-nav/HeaderNav";
 
 
 function Batching() {
   return (
-    <VersionSwitch>
-      <CodeExampleBlock>
-        <Code text={samples.old} language='tsx' highlight={"2"}/>
-        <ExampleBlock>
-          
-        <Text size='small'>Amma small</Text>
-        <Text size='medium'>Amma medium</Text>
-        <Text size='large'>Amma large</Text>
-        </ExampleBlock>
-      </CodeExampleBlock>
-
-      <div>
-        Example
-      </div>
-    </VersionSwitch>
+    <HeaderNav
+      title="Batching"
+      routeDeccriptors={[
+        {
+          label: "React 18",
+          path: "",
+          element: (
+            <HalfGrid>
+              <Code text={samples.new} language='jsx' highlight={"11-16, 29"}/>
+              <ExampleBlock>
+                <BatchingExampleNew/>
+              </ExampleBlock>
+            </HalfGrid>
+          )
+        },
+        {
+          label: "Old",
+          path: "old",
+          element: (
+            <HalfGrid>
+              <Code text={samples.oldState} language='jsx' highlight={"2, 11-15, 28"}/>
+              <Code text={samples.oldReducer} language='jsx' highlight={"2, 11-15, 28"}/>
+            </HalfGrid>
+          )
+        }
+      ]}
+    />
   );
 }
 
