@@ -4,6 +4,7 @@ import {NavLink} from "react-router-dom";
 
 const links = [
   {path: "batching", name: "Batching"},
+  {path: "suspense", name: "Suspense"},
   {path: "transaction", name: "Transactions"}
 ]
 
