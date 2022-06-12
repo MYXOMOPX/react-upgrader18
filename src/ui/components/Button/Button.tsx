@@ -2,16 +2,13 @@ import { FC, PropsWithChildren } from "react";
 import cn from "classnames";
 import "./Button.css"
 
-type ButtonProps = PropsWithChildren<{
-    onClick?: () => void;
-    className?: string;
-}>
+type ButtonElementProps = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
 
-export const Button: FC<ButtonProps> = (props) => {
-    const { onClick, children, className } = props;
+export const Button: FC<ButtonElementProps> = (props) => {
+    const { children, className, ...restProps } = props;
 
     return (
-        <button className={cn("btn",className)} onClick={onClick}>
+        <button {...restProps} className={cn("btn",className)}>
             {children}
         </button>
     )

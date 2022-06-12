@@ -1,0 +1,20 @@
+.input {
+    font-family: inherit;
+    color: inherit;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    background-color: rgb(220,220,220, 1);
+    border: none;
+    /* border-bottom: 3px solid transparent; */
+    border-bottom: 3px solid var(--color-primary-dark);
+    width: 100%;
+    display: block;
+    transition: all .3s;
+}
+
+.input:focus {
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba(var(--color-black), .1);
+    border-bottom: 3px solid var(--color-primary);
+}

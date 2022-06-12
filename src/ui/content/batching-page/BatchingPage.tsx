@@ -1,4 +1,3 @@
-import {VersionSwitch} from "../../components/version-switch/VersionSwitch";
 import { HalfGrid } from '../../components/half-grid/HalfGrid';
 import samples from "./code-samples";
 import { ExampleBlock } from '../../components/example-block/ExampleBlock';

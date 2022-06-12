@@ -5,6 +5,7 @@ import Sidebar from "../sidebar/Sidebar";
 import {Route} from "react-router";
 import Batching from "../content/batching-page/BatchingPage";
 import SuspensePage from '../content/suspense-page/SuspensePage';
+import TransactionPage from '../content/transitions-page/TransitionPage';
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/suspense/*" element={<SuspensePage/>}/>
+        </Routes>
+        <Routes>
+          <Route path="/transaction/*" element={<TransactionPage/>}/>
         </Routes>
       </div>
     </BrowserRouter>
