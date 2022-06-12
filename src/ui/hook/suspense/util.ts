@@ -3,26 +3,19 @@ export interface SuspenseOverPromiseData<T> {
     error?: any
 }
 
-export type SuspenseQuery<DATA = any, ARG extends Array<any> = any[]> = {
-    read: (...args: ARG) => SuspenseOverPromiseData<DATA>;
+export type SuspenseQuery<DATA = any> = {
+    read: () => SuspenseOverPromiseData<DATA>;
 }
-export type ReloadableSuspenseQuery<DATA = any, ARG extends Array<any> = any[]> = SuspenseQuery<DATA,ARG> & {
+export type ReloadableSuspenseQuery<DATA = any> = SuspenseQuery<DATA> & {
     reload: () => void;
 }
 
-/**
- * 
- * const query = useSuspenseQuery(() => {}, [deps])
- */
-
-export const suspenseOverFunction = 
-<DATA, ARG extends Array<any> = any[]>(
-    method: (...args: ARG) => Promise<DATA>,
+export const suspenseOverFunction = <DATA>(
+    method: () => Promise<DATA>,
     onReload?: () => void
-): SuspenseQuery<DATA, ARG> | ReloadableSuspenseQuery<DATA, ARG> => {
-    let promise: Promise<any>|null = null;
-    let status = 'pending';
-    let state = {};
+): SuspenseQuery<DATA> | ReloadableSuspenseQuery<DATA> => {
+    let promise: Promise<any> | null = null;
+    let state: SuspenseOverPromiseData<DATA> | null = null;
     
     const reload = onReload && (() => {
         promise = null;
@@ -30,26 +23,17 @@ export const suspenseOverFunction =
     })
 
     return {
-        read: (...args: ARG) => {
-            if (promise === null) {
-                promise = method(...args).then(
-                    (data) => {
-                      status = 'success';
-                      state = { data };
-                    },
-                    (error) => {
-                      status = 'error';
-                      state = { error };
-                    }
-                );
+        read: () => {
+            if (state === null) {
+                if (promise === null) {
+                    promise = method().then(
+                        (data) => state = { data },
+                        (error) => state = { error }
+                    );
+                }
                 throw promise;
             }
-
-            if (status === 'error') {
-                return state;
-            } else {
-                return state;
-            }
+            return state;
         },
         reload
     }

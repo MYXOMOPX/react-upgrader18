@@ -1,7 +1,7 @@
 import React, { FC, Suspense } from "react"
 import { Spinner } from "../../components/Spinner/Spinner";
 import { Text } from "../../components/Text/Text";
-import { delayedValue } from "./util"
+import { delayedValue } from "../../util";
 
 const LazyComponentOne = React.lazy(() => delayedValue({default: ComponentOne}, 5000));
 

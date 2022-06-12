@@ -31,6 +31,7 @@ export const Code: FC<CodeProps> = (props) => {
 
     return (
         <CodeBlock
+            lineNumberContainerStyle={{userSelect: "auto", paddingTop: 0, paddingBottom: 0}}
             customStyle={styles}
             text={text}
             language={language}

@@ -1,2 +1,2 @@
-export {default as useSuspenseData} from "./useSuspenseQuery";
+export {default as useSuspenseQuery} from "./useSuspenseQuery";
 export * from "./util"

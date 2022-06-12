@@ -4,4 +4,5 @@
     margin: 5rem;
     border-radius: 3px;
     grid-column-gap: 2rem;
+    grid-row-gap: 4rem;
 }

@@ -3,7 +3,7 @@ import {BrowserRouter, Routes} from "react-router-dom";
 import './App.css';
 import Sidebar from "../sidebar/Sidebar";
 import {Route} from "react-router";
-import Batching from "../content/batching/Batching";
+import Batching from "../content/batching-page/BatchingPage";
 import SuspensePage from '../content/suspense-page/SuspensePage';
 
 function App() {
