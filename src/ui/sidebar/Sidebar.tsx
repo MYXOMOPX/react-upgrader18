@@ -1,11 +1,12 @@
-import React from 'react';
 import './Sidebar.css';
-import {NavLink} from "react-router-dom";
+import { Link } from '../components/link';
 
 const links = [
   {path: "batching", name: "Batching"},
   {path: "suspense", name: "Suspense"},
-  {path: "transaction", name: "Transactions"}
+  {path: "transitions", name: "Transitions"},
+  {path: "deffered", name: "Deffered"},
+  {path: "upgrading", name: "Upgrading"}
 ]
 
 function Sidebar() {
@@ -13,11 +14,11 @@ function Sidebar() {
         <div className="sidebar">
             <ul className="sidebar__list">
               {links.map(item => (
-                <li className="sidebar__list__item" key={item.path+item.name}>
-                  <NavLink to={item.path} className="sidebar__link">
-                    {item.name}
-                  </NavLink>
-                </li>
+                  <li className="sidebar__list__item" key={item.path+item.name}>
+                    <Link to={item.path} className="sidebar__link">
+                        {item.name}
+                    </Link>
+                  </li>
               ))}
             </ul>
         </div>

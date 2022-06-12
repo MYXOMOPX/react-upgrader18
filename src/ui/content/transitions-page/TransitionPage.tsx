@@ -18,7 +18,7 @@ function TransitionPage() {
           path: "",
           element: (
             <HalfGrid>
-              <Code text={samples.trouble} language='jsx' highlight={"11-16, 29"}/>
+              <Code text={samples.trouble} language='jsx'/>
               <ExampleBlock>
                 <TransitionExTrouble/>
               </ExampleBlock>
@@ -30,7 +30,7 @@ function TransitionPage() {
           path: "withTransitions",
           element: (
             <HalfGrid>
-              <Code text={samples.withTransitions} language='jsx' highlight={"11-16, 29"}/>
+              <Code text={samples.withTransitions} language='jsx'/>
               <ExampleBlock>
                 <TransitionExSolution/>
               </ExampleBlock>

@@ -19,7 +19,7 @@ function App() {
           <Route path="/suspense/*" element={<SuspensePage/>}/>
         </Routes>
         <Routes>
-          <Route path="/transaction/*" element={<TransactionPage/>}/>
+          <Route path="/transitions/*" element={<TransactionPage/>}/>
         </Routes>
       </div>
     </BrowserRouter>

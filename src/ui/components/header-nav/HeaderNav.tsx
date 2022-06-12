@@ -30,7 +30,7 @@ export const HeaderNav: FC<HeaderNavProps> = (props) => {
         <Text className="header-nav__title" weight="bold" inline size="xlarge" color="white">{title}</Text>
         <div className="header-nav__routes">
           {routeDeccriptors.map(d => (
-            <Link to={d.path} className="header-nav__link">{d.label}</Link>
+            <Link to={d.path} className="header-nav__link" end={d.path.length === 0}>{d.label}</Link>
           ))}
         </div>
       </nav>

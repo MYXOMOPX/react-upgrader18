@@ -6,9 +6,12 @@
     transition: color .2s;
 }
 
+
+.link.active,
 .link:hover {
     color: var(--color-primary)
 }
+
 .link:active {
     color: var(--color-primary-dark)
 }
