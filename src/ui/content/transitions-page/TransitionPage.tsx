@@ -11,7 +11,7 @@ import { TransitionExSolution } from './TransitionExSolution';
 function TransitionPage() {
   return (
     <HeaderNav
-      title="Transactions"
+      title="Transitions"
       routeDeccriptors={[
         {
           label: "Trouble",

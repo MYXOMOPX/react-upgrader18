@@ -5,7 +5,7 @@ const links = [
   {path: "batching", name: "Batching"},
   {path: "suspense", name: "Suspense"},
   {path: "transitions", name: "Transitions"},
-  {path: "deffered", name: "Deffered"},
+  {path: "deferred", name: "Deferred"},
   {path: "upgrading", name: "Upgrading"}
 ]
 

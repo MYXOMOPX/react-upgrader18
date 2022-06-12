@@ -6,6 +6,7 @@ import {Route} from "react-router";
 import Batching from "../content/batching-page/BatchingPage";
 import SuspensePage from '../content/suspense-page/SuspensePage';
 import TransactionPage from '../content/transitions-page/TransitionPage';
+import DeferredPage from '../content/deferred-page/DeferredPage';
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/transitions/*" element={<TransactionPage/>}/>
+        </Routes>
+        <Routes>
+          <Route path="/deferred/*" element={<DeferredPage/>}/>
         </Routes>
       </div>
     </BrowserRouter>
