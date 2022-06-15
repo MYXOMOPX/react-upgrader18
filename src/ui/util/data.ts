@@ -1,4 +1,4 @@
-import { uniqueNamesGenerator, adjectives, colors, animals, names } from 'unique-names-generator';
+import { uniqueNamesGenerator, adjectives, colors, animals, starWars, names } from 'unique-names-generator';
 
 export const randomInt = (max: number = 1, min: number = 0) => {
     return Math.round(Math.random() * (max-min)) + min;
@@ -21,9 +21,15 @@ const cyrb53 = function(str: string, seed: number = 0) {
     return 4294967296 * (2097151 & h2) + (h1>>>0);
 };
 
-export const getSomeUser = (seed?: string) => {
-    const randomMailVal = uniqueNamesGenerator({ dictionaries: [adjectives, animals], length: 2, separator: "-", seed });
-    const randomName = uniqueNamesGenerator({ dictionaries: [names, names], length: 2, separator: " ", seed });
+export interface UserDetails {
+    email: string,
+    name: string,
+    age: number
+}
+
+export const getSomeUser = (seed?: string | number): UserDetails => {
+    const randomMailVal = uniqueNamesGenerator({ dictionaries: [colors, animals], length: 2, separator: "-", seed });
+    const randomName = uniqueNamesGenerator({ dictionaries: [names, starWars, names, names], length: 2, separator: " ", seed });
     return {
         email: `${randomMailVal}@gmail.com`,
         name: randomName,

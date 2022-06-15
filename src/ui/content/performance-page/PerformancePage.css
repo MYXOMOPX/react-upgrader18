@@ -1,0 +1,12 @@
+
+.table-container {
+    width: 750px;
+    height: 400px;
+    overflow: scroll;
+    outline: dotted 3px grey;
+    font-size: 1.5rem;
+}
+
+.big-table th, .big-table td {
+    border: 1px solid;
+}

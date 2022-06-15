@@ -1,6 +1,8 @@
 export default {
     lazy: `// file SuspenseUsageLazy.tsx
-const LazyComponentOne = React.lazy(() => import('./ComponentOne.tsx'));
+const LazyComponentOne = React.lazy(() => { 
+    return import('./ComponentOne.tsx')
+});
 
 export const SuspenseUsageLazy = () => {
     return (
@@ -22,9 +24,8 @@ const ComponentOne: FC = () => {
 , dataFetch: `// SuspenseUsageDataFetch.tsx
 export const SuspenseUsageDataFetch = () => {
     return (
-        <div className="suspense--usage-datafetch">
-            <Text weight="bold" size="large">=== Render-as-You-Fetch ===</Text>
-            <Text size="large">We will load some data inside &lt;Suspense/&gt;</Text>
+        <div className="suspense-ctr">
+            <Text>=== Render-as-You-Fetch ===</Text>
             <div className="u-mt-md">
                 <Suspense fallback={<Spinner/>}>
                     <ComponentOne/>
@@ -34,7 +35,6 @@ export const SuspenseUsageDataFetch = () => {
     )
 }
 
-
 // ComponentOne.tsx
 const query = suspeseOverPromise( delayedValue(randomInt(100)) );
 
@@ -42,7 +42,9 @@ const ComponentOne: FC = () => {
     const {data: value} = query.read();
     
     return (
-        <Text inline weight="bold">Loaded value = {value}</Text>
+        <Text inline weight="bold">
+            Loaded value = {value}
+        </Text>
     )
 }`
 , suspenseOverPromise: `// suspenseOverPromise.ts
@@ -50,7 +52,7 @@ export const  suspeseOverPromise = <T>(promise: Promise<T>) => {
     let status = 'pending';
     let data: T;
     let error: any;
-    let suspender = promise.then(
+    let suspendPromise: Promise = promise.then(
         (r) => {
           status = 'success';
           data = r;
@@ -63,8 +65,8 @@ export const  suspeseOverPromise = <T>(promise: Promise<T>) => {
     return {
         read() { // throws promise or returns {data?: T,  error?: any}
             if (status === 'pending') {
-                // throw promise -> component will suspense
-                throw suspender; // component will try to render again, when this promise resolve
+                throw suspendPromise;
+                 // component will try to render again, when this promise resolve
             } else if (status === 'error') {
                 return {error};
             } else {
@@ -86,10 +88,10 @@ export const SuspenseUsageHookQuery = () => {
     const reload = () => setRandomNumber(randomInt(1000));
 
     return (
-        <div className="suspense--usage-datafetch">
+        <div className="suspense-ctr">
             {/* Some text here */}
-            <Button onClick={reload} className="u-mt-md">Reload in parent</Button>
-            <div className="u-mt-md">
+            <Button onClick={reload} >Reload</Button>
+            <div>
                 <Suspense fallback={<Spinner/>}>
                     <ComponentOne query={query}/>
                 </Suspense>
@@ -105,10 +107,17 @@ interface ComponentOneProps {
 
 const ComponentOne: FC<ComponentOneProps> = ({query}) => {
     const {data: value} = query.read();
-    return <Text inline weight="bold">Loaded value = {value}</Text>
+    return (
+        <Text inline weight="bold">
+            Loaded value = {value}
+        </Text>
+    );
 }`
 , useSuspenseQuery: `// useSuspenseQuery.ts
-export const useSuspenseQuery = <T>(method: () => Promise<T>, deps?: any[]): SuspenseQuery<T> => {
+export const useSuspenseQuery = <T>(
+    method: () => Promise<T>, 
+    deps?: any[]
+): SuspenseQuery<T> => {
     const query = useMemo(() => {
         return suspenseOverFunction(method)
     }, deps)

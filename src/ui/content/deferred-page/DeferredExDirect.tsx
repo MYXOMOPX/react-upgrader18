@@ -1,10 +1,10 @@
-import { FC, useDeferredValue, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { FC, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Input } from "../../components/Input";
 import { Text } from "../../components/Text";
-import { UserListViewDeffered } from "./components/UserListView";
+import { UserListView } from "./components/UserListView";
 
 
-export const DeferredExSimple: FC = () => {
+export const DeferredExDirect: FC = () => {
 
     const ref = useRef<HTMLDivElement>(null);
     const [inputValue, setInputValue] = useState("");
@@ -19,10 +19,10 @@ export const DeferredExSimple: FC = () => {
 
     return (
         <div ref={ref}>
-            <Text weight="bold" size="large">Demo of useDeferredValue:</Text>
+            <Text weight="bold" size="large">We don't have control over our props</Text>
             <Input className="u-mt-md" value={inputValue} onChange={setInputValue} placeholder="Search user by name..."/>
             <div className="u-mt-lg">
-                <UserListViewDeffered query={inputValue}/>
+                <UserListView query={inputValue}/>
             </div>
         </div>
     )

@@ -3,11 +3,13 @@
 .text._small { font-size: 1.4rem; }
 .text._medium { font-size: 1.7rem; }
 .text._large { font-size: 2.2rem; }
+.text._xlarge { font-size: 2.7rem; }
 
 .text._b-regular { font-weight: 300; }
 .text._b-semibold { font-weight: 400; }
-.text._b-bold { font-weight: 600; }
+.text._b-bold { font-weight: 500; }
 
+.text._c-inherit { }
 .text._c-white { color: var(--color-white); }
 .text._b-grey { color: var(--color-grey-dark-1) }
 .text._b-primary { color: var(--color-primary) }

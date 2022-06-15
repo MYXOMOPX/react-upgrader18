@@ -1,0 +1,32 @@
+.upgrading-topic {
+    font-size: 2.5rem;
+}
+
+.upgrading-list {
+    counter-reset: item;
+    margin-top: 2rem;
+    font-size: 2rem;
+    padding-left: 5rem;
+}
+
+.upgrading-list li:before { content: counters(item, ".") " | "; counter-increment: item }
+
+/* .upgrading-list__sublist>li:before {
+    content: counters(item, ".") " ";
+    counter-increment: item
+  } */
+
+.upgrading-list>li {
+    margin-bottom: 2rem;
+    display: block;
+}
+
+.upgrading-list__sublist {
+    counter-reset: item;
+    margin-left: 5rem;
+}
+
+.upgrading-list__sublist>li {
+    margin-top: 0.5rem;
+    display: block;
+}

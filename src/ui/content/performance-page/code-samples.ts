@@ -9,8 +9,9 @@ export const TransitionExTrouble: FC = () => {
             <Text>Demo of rendering lags:</Text>
             <Input value={inputValue} onChange={setInputValue}/>
             <Text>Big table below:</Text>
-            
-            <BigTable query={inputValue}/>
+            <div>
+                <BigTable query={inputValue}/>
+            </div>
         </div>
     )
 }`
@@ -18,30 +19,28 @@ export const TransitionExTrouble: FC = () => {
 , withTransitions: ` // TransitionExSolution.tsx
 export const TransitionExSolution: FC = () => {
 
-    // for urgent updates -- input 
-    const [inputValue, setInputValue] = useState("");
-
-    // for non-urgent updates -- table
-    const [queryValue, setQueryValue] = useState("");
+    const [inputValue, setInputValue] = useState(""); // for urgent updates -- input 
+    const [queryValue, setQueryValue] = useState(""); // for non-urgent updates -- table
 
     const [isPending, startTransition] = useTransition();
 
     const onInputChange = (value: string) => {
         setInputValue(value); // triggers urgent update
         startTransition(() => {
-            // triggers NON-urgent update (can be interrupted)
-            setQueryValue(value);
+            setQueryValue(value); // triggers NON-urgent update (can be interrupted)
         })
     }
 
     return (
         <div>
             <Text>Demo with using of transitions:</Text>
-            <Text>{isPending ? "Yes" : "No"}</Text>
-            <Input value={inputValue} onChange={onInputChange}/>
+            <Text>Transition in process: {isPending ? "Yes" : "No"}</Text>
+            <Input value={inputValue} onChange={onInputChange} />
             <Text>Big table below:</Text>
             
-            <BigTable query={queryValue}/>
+            <div>
+                <BigTable query={queryValue}/>
+            </div>
         </div>
     )
 }`

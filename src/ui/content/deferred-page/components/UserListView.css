@@ -1,0 +1,36 @@
+.user-list-view {
+    text-align: center;
+}
+
+.user-list-view__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1.5rem;
+}
+
+.user-card {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-primary);
+    border-radius: 5px;
+    box-shadow: var(--shadow-light);
+    cursor: pointer;
+}
+
+.user-card:hover {
+    transform: scale(1.02);
+    background-color: var(--color-primary-light);
+    color: white;
+    box-shadow: var(--shadow-dark);
+}
+
+p.text.user-card__name {
+    align-self: center;
+    font-size: 1.7rem;
+}
+
+.user-card__email {
+    text-align: center;
+}

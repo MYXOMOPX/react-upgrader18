@@ -7,6 +7,8 @@ import Batching from "../content/batching-page/BatchingPage";
 import SuspensePage from '../content/suspense-page/SuspensePage';
 import TransactionPage from '../content/transitions-page/TransitionPage';
 import DeferredPage from '../content/deferred-page/DeferredPage';
+import UpgradingPage from '../content/upgrading-page/UpgradingPage';
+import OtherPage from '../content/other/OtherPage';
 
 function App() {
   return (
@@ -24,6 +26,12 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/deferred/*" element={<DeferredPage/>}/>
+        </Routes>
+        <Routes>
+          <Route path="/other/*" element={<OtherPage/>}/>
+        </Routes>
+        <Routes>
+          <Route path="/upgrading/*" element={<UpgradingPage/>}/>
         </Routes>
       </div>
     </BrowserRouter>

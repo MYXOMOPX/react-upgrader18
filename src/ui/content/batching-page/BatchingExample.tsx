@@ -16,7 +16,7 @@ export const BatchingExampleNew = () => {
         setTimeout(() => { // It may be fetch
             c1Set(c => c+1);
             c2Set(c => c-1);
-        }, 200);
+        }, 500);
     }
 
     return (

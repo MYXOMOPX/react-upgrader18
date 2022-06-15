@@ -5,6 +5,7 @@ type Textcolor =
     | "white"
     | "grey"
     | "primary"
+    | "inherit"
 ;
 
 type TextSize = 
@@ -29,7 +30,7 @@ type TextProps = PropsWithChildren<{
 }>
 
 export const Text: FC<TextProps> = (props) => {
-    const {inline = false, size = "medium", weight = "regular", color = "grey", children, className} = props;
+    const {inline = false, size = "medium", weight = "inherit", color = "grey", children, className} = props;
 
     const classes = `text _${size} _b-${weight} _c-${color} ${className}`
 
