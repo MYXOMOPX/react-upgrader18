@@ -22,8 +22,11 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Build Yarn and npm
-        uses: linchpin/action-build-yarn-npm@master
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 17
+      
+      - run: npm run build
         
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
