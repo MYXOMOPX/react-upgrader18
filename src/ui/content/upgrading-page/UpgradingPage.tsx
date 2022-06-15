@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { HalfGrid } from "../../components/half-grid/HalfGrid";
 import { HeaderNav } from "../../components/header-nav/HeaderNav";
-import { Text } from "../../components/Text/Text";
+import logo from '../../../logo.svg';
 import "./UpgradingPage.css";
 
 const UpgradingPage: FC = () => {
@@ -41,13 +41,13 @@ const UpgradingPage: FC = () => {
                         <li>
                             Зафиксить usePageLoading
                             <ol className="upgrading-list__sublist">
-                                <li>Иначе BackOffice не обновится(</li>
+                                <li>Иначе BackOffice не обновится</li>
                             </ol> 
                         </li>
                     </ol>
                 </div>
-                <div>
-                    TEST 2
+                <div className="logo-container">
+                    <img src={logo} className="logo" alt="logo" />
                 </div>
             </HalfGrid>
         </div>
